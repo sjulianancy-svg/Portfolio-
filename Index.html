@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>2nd Year BCA Student — Portfolio</title>
+  <style>
+    body{margin:0;font-family:Arial, sans-serif;background:#0d1b2a;color:#e0e1dd;line-height:1.6}
+    header{background:#1b263b;padding:16px;display:flex;justify-content:space-between;align-items:center}
+    .brand{font-size:20px;font-weight:bold;color:#e0e1dd}
+    nav a{color:#e0e1dd;text-decoration:none;margin:0 10px;padding:6px 10px;border-radius:6px}
+    nav a:hover,nav a.active{background:#415a77}
+    main{padding:20px;max-width:1000px;margin:auto}
+    .page{display:none}
+    .page.active{display:block}
+    .card{background:#1b263b;padding:16px;border-radius:10px;margin-bottom:20px}
+    .skills,.projects{display:flex;flex-wrap:wrap;gap:10px}
+    .pill{background:#415a77;padding:6px 12px;border-radius:20px;font-size:14px}
+    form{display:grid;gap:10px}
+    input,textarea{padding:10px;border:none;border-radius:6px}
+    button{padding:10px 14px;border:none;border-radius:6px;background:#778da9;color:white;cursor:pointer}
+    button:hover{background:#a3b18a}
+    footer{text-align:center;padding:12px;background:#1b263b;color:#778da9}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">BCA Student Portfolio</div>
+    <nav>
+      <a href="#home" class="navlink active" data-page="home">Home</a>
+      <a href="#about" class="navlink" data-page="about">About</a>
+      <a href="#projects" class="navlink" data-page="projects">Projects</a>
+      <a href="#contact" class="navlink" data-page="contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home -->
+    <section id="home" class="page active">
+      <div class="card">
+        <h2>Hi, I'm Julia Nancy</h2>
+        <p>A 2nd Year BCA student passionate about software development, web design, and problem solving.</p>
+        <h3>Skills</h3>
+        <div class="skills">
+          <span class="pill">C / C++</span>
+          <span class="pill">Java</span>
+          <span class="pill">Python</span>
+          <span class="pill">HTML / CSS / JS</span>
+          <span class="pill">SQL</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="page">
+      <div class="card">
+        <h2>About Me</h2>
+        <p>I am pursuing a Bachelor of Computer Applications and enjoy coding, designing websites, and learning new technologies.</p>
+        <h3>Education</h3>
+        <ul>
+          <li>Example College — BCA (2023 – Present)</li>
+          <li>ABC Higher Secondary School — (Completed 2023)</li>
+        </ul>
+        <h3>Interests</h3>
+        <div class="skills">
+          <span class="pill">Web Development</span>
+          <span class="pill">Machine Learning</span>
+          <span class="pill">Problem Solving</span>
+          <span class="pill">Open Source</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="page">
+      <div class="card">
+        <h2>Projects</h2>
+        <div class="projects">
+          <div class="card" style="flex:1">
+            <h3>Student Portal</h3>
+            <p>A simple web portal for students to view grades and assignments.</p>
+          </div>
+          <div class="card" style="flex:1">
+            <h3>Library Management</h3>
+            <p>Java-based system to manage books and issue/return features.</p>
+          </div>
+          <div class="card" style="flex:1">
+            <h3>Weather App</h3>
+            <p>Web app to show real-time weather using an API.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="page">
+      <div class="card">
+        <h2>Contact</h2>
+        <p>Send me a message if you’d like to collaborate!</p>
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="text" placeholder="Subject">
+          <textarea placeholder="Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 BCA Student Portfolio
+  </footer>
+
+  <script>
+    const links = document.querySelectorAll('.navlink');
+    const pages = document.querySelectorAll('.page');
+
+    links.forEach(link=>{
+      link.addEventListener('click', e=>{
+        e.preventDefault();
+        const pageId = link.dataset.page;
+        pages.forEach(p=>p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        links.forEach(l=>l.classList.remove('active'));
+        link.classList.add('active');
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    });
+  </script>
+</body>
+</html>
